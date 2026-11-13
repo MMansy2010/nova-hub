@@ -87,6 +87,22 @@ const INITIAL_DATA = {
       notes: "I registered with a friend. We are currently waiting for our teacher's approval. We are participating in the Mixed category.",
       createdAt: '2026-11-14T00:00:00.000Z',
       updatedAt: '2026-11-14T00:00:00.000Z'
+    },
+    {
+      id: 'opp-junior-academy-launchpad',
+      name: 'Junior Academy – Launchpad',
+      organization: 'New York Academy of Sciences (NYAS)',
+      category: 'STEM / Research Program',
+      type: 'Academic Program',
+      status: 'In Progress',
+      priority: 'High',
+      platform: 'Junior Academy Launchpad',
+      deadline: '',
+      website: 'https://www.nyas.org/',
+      project: '',
+      notes: 'The student has been accepted into the Junior Academy. Launchpad is associated with the program and should be tracked as a separate milestone.',
+      createdAt: '2026-11-14T00:00:00.000Z',
+      updatedAt: '2026-11-14T00:00:00.000Z'
     }
   ],
   tasks: []
@@ -120,6 +136,29 @@ class NovaStorage {
           modified = true;
         }
       });
+
+      // Automatic migration: add Junior Academy – Launchpad if not already present
+      const hasJA = parsed.opportunities.some(o => o.name === 'Junior Academy – Launchpad' || o.id === 'opp-junior-academy-launchpad');
+      if (!hasJA) {
+        parsed.opportunities.push({
+          id: 'opp-junior-academy-launchpad',
+          name: 'Junior Academy – Launchpad',
+          organization: 'New York Academy of Sciences (NYAS)',
+          category: 'STEM / Research Program',
+          type: 'Academic Program',
+          status: 'In Progress',
+          priority: 'High',
+          platform: 'Junior Academy Launchpad',
+          deadline: '',
+          website: 'https://www.nyas.org/',
+          project: '',
+          notes: 'The student has been accepted into the Junior Academy. Launchpad is associated with the program and should be tracked as a separate milestone.',
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString()
+        });
+        modified = true;
+      }
+
       if (modified) {
         this.saveToStorage(parsed);
       }
@@ -182,6 +221,9 @@ class NovaStorage {
         id: opp.id || 'opp-' + Date.now().toString(36) + '-' + Math.random().toString(36).substr(2, 5),
         name: opp.name.trim(),
         category: opp.category || 'General',
+        type: opp.type ? opp.type.trim() : '',
+        organization: opp.organization ? opp.organization.trim() : '',
+        platform: opp.platform ? opp.platform.trim() : '',
         status: opp.status || 'Not Started',
         priority: opp.priority || 'Medium',
         deadline: opp.deadline || '',
@@ -359,6 +401,9 @@ class NovaStorage {
         id: o.id || 'opp-imp-' + idx + '-' + Date.now().toString(36),
         name: (o.name || 'Untitled Opportunity').trim(),
         category: o.category || 'General',
+        type: o.type || '',
+        organization: o.organization || '',
+        platform: o.platform || '',
         status: o.status || 'Not Started',
         priority: o.priority || 'Medium',
         deadline: o.deadline || '',

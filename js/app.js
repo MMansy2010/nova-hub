@@ -205,6 +205,12 @@ window.NovaApp = {
     document.getElementById('opp-form-deadline').value = '';
     document.getElementById('opp-form-website').value = '';
     document.getElementById('opp-form-project').value = '';
+    const orgEl = document.getElementById('opp-form-organization');
+    if (orgEl) orgEl.value = '';
+    const platEl = document.getElementById('opp-form-platform');
+    if (platEl) platEl.value = '';
+    const typeEl = document.getElementById('opp-form-type');
+    if (typeEl) typeEl.value = '';
     document.getElementById('opp-form-notes').value = '';
 
     this.openModal('modal-opportunity');
@@ -224,6 +230,12 @@ window.NovaApp = {
     document.getElementById('opp-form-deadline').value = opp.deadline || '';
     document.getElementById('opp-form-website').value = opp.website || '';
     document.getElementById('opp-form-project').value = opp.project || '';
+    const orgEl = document.getElementById('opp-form-organization');
+    if (orgEl) orgEl.value = opp.organization || '';
+    const platEl = document.getElementById('opp-form-platform');
+    if (platEl) platEl.value = opp.platform || '';
+    const typeEl = document.getElementById('opp-form-type');
+    if (typeEl) typeEl.value = opp.type || '';
     document.getElementById('opp-form-notes').value = opp.notes || '';
 
     this.openModal('modal-opportunity');
@@ -244,12 +256,21 @@ window.NovaApp = {
     const deadline = document.getElementById('opp-form-deadline').value;
     const website = document.getElementById('opp-form-website').value.trim();
     const project = document.getElementById('opp-form-project').value.trim();
+    const orgEl = document.getElementById('opp-form-organization');
+    const organization = orgEl ? orgEl.value.trim() : '';
+    const platEl = document.getElementById('opp-form-platform');
+    const platform = platEl ? platEl.value.trim() : '';
+    const typeEl = document.getElementById('opp-form-type');
+    const type = typeEl ? typeEl.value.trim() : '';
     const notes = document.getElementById('opp-form-notes').value.trim();
 
     window.storage.saveOpportunity({
       id: id || undefined,
       name,
       category,
+      type,
+      organization,
+      platform,
       status,
       priority,
       deadline,
@@ -289,9 +310,11 @@ window.NovaApp = {
       <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px;">
         <div>
           <h2 style="font-size: 18px; font-weight: 700; color: var(--text-primary);">${this.escape(opp.name)}</h2>
-          ${opp.project ? `<div style="font-size: 13px; color: var(--accent); margin-top: 2px;">Project: ${this.escape(opp.project)}</div>` : ''}
+          ${opp.organization ? `<div style="font-size: 12px; color: var(--text-secondary); margin-top: 2px;">Organization: <strong style="color: var(--text-primary);">${this.escape(opp.organization)}</strong></div>` : ''}
+          ${opp.platform ? `<div style="font-size: 12px; color: var(--accent); margin-top: 2px;">Platform: <strong>${this.escape(opp.platform)}</strong></div>` : (opp.project ? `<div style="font-size: 12px; color: var(--accent); margin-top: 2px;">Project: ${this.escape(opp.project)}</div>` : '')}
           <div style="display: flex; gap: 6px; margin-top: 8px; flex-wrap: wrap;">
             <span class="badge badge-category">${this.escape(opp.category)}</span>
+            ${opp.type ? `<span class="badge badge-category">${this.escape(opp.type)}</span>` : ''}
             <span class="badge badge-status-${statusClass}"><span class="badge-dot"></span>${opp.status}</span>
             <span class="badge badge-priority-${opp.priority.toLowerCase()}">${opp.priority}</span>
             ${opp.deadline ? `<span class="badge badge-category mono">📅 ${opp.deadline}</span>` : '<span style="font-size: 11px; color: var(--text-tertiary);">No deadline set</span>'}
@@ -637,3 +660,4 @@ window.NovaApp = {
 document.addEventListener('DOMContentLoaded', () => {
   window.NovaApp.init();
 });
+

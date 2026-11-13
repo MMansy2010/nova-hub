@@ -68,7 +68,7 @@ Instead, NOVA HUB is inspired by tools like **Linear**, **Raycast**, and **Notio
 
 ## 📁 Initial Preloaded Opportunities
 
-NOVA HUB comes out of the box with the 6 baseline student opportunities:
+NOVA HUB comes out of the box with the 7 baseline student opportunities:
 
 1. **NASA Space Apps Challenge**
    - *Category*: Hackathon
@@ -94,6 +94,14 @@ NOVA HUB comes out of the box with the 6 baseline student opportunities:
    - *Website*: [https://gvhackathon.com/app](https://gvhackathon.com/app)
    - *Status*: Pending Approval | *Priority*: Medium
    - *Context*: Registered with a friend, waiting for teacher's approval, competing in the Mixed category.
+7. **Junior Academy – Launchpad**
+   - *Organization*: New York Academy of Sciences (NYAS)
+   - *Category*: STEM / Research Program
+   - *Type*: Academic Program
+   - *Status*: In Progress | *Priority*: High
+   - *Platform*: Junior Academy Launchpad
+   - *Website*: [https://www.nyas.org/](https://www.nyas.org/)
+   - *Context*: Accepted into the Junior Academy. Launchpad is tracked as a dedicated milestone track.
 
 ---
 

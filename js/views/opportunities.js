@@ -33,7 +33,10 @@ window.NovaOpportunitiesView = {
         const matchesCat = opp.category.toLowerCase().includes(q);
         const matchesNotes = opp.notes && opp.notes.toLowerCase().includes(q);
         const matchesProj = opp.project && opp.project.toLowerCase().includes(q);
-        if (!matchesName && !matchesCat && !matchesNotes && !matchesProj) return false;
+        const matchesOrg = opp.organization && opp.organization.toLowerCase().includes(q);
+        const matchesPlatform = opp.platform && opp.platform.toLowerCase().includes(q);
+        const matchesType = opp.type && opp.type.toLowerCase().includes(q);
+        if (!matchesName && !matchesCat && !matchesNotes && !matchesProj && !matchesOrg && !matchesPlatform && !matchesType) return false;
       }
       return true;
     });
@@ -159,13 +162,15 @@ window.NovaOpportunitiesView = {
               <div class="opp-card-header">
                 <div>
                   <div class="opp-card-name">${this.escape(opp.name)}</div>
-                  ${opp.project ? `<div style="font-size: 12px; color: var(--accent); margin-top: 2px;">Project: ${this.escape(opp.project)}</div>` : ''}
+                  ${opp.organization ? `<div style="font-size: 11px; color: var(--text-tertiary); margin-top: 1px;">${this.escape(opp.organization)}</div>` : ''}
+                  ${opp.platform ? `<div style="font-size: 12px; color: var(--accent); margin-top: 2px;">Platform: ${this.escape(opp.platform)}</div>` : (opp.project ? `<div style="font-size: 12px; color: var(--accent); margin-top: 2px;">Project: ${this.escape(opp.project)}</div>` : '')}
                 </div>
                 <span class="badge badge-priority-${opp.priority.toLowerCase()}">${opp.priority}</span>
               </div>
 
               <div class="opp-card-meta">
                 <span class="badge badge-category">${this.escape(opp.category)}</span>
+                ${opp.type ? `<span class="badge badge-category">${this.escape(opp.type)}</span>` : ''}
                 <span class="badge badge-status-${statusClass}">
                   <span class="badge-dot"></span>
                   ${opp.status}
@@ -250,10 +255,12 @@ window.NovaOpportunitiesView = {
                     <div style="font-weight: 600; color: var(--text-primary); cursor: pointer;" onclick="window.NovaApp.openOpportunityDetails('${opp.id}')">
                       ${this.escape(opp.name)}
                     </div>
-                    ${opp.project ? `<div style="font-size: 11px; color: var(--accent);">Project: ${this.escape(opp.project)}</div>` : ''}
+                    ${opp.organization ? `<div style="font-size: 11px; color: var(--text-tertiary);">${this.escape(opp.organization)}</div>` : ''}
+                    ${opp.platform ? `<div style="font-size: 11px; color: var(--accent);">Platform: ${this.escape(opp.platform)}</div>` : (opp.project ? `<div style="font-size: 11px; color: var(--accent);">Project: ${this.escape(opp.project)}</div>` : '')}
                   </td>
                   <td>
                     <span class="badge badge-category">${this.escape(opp.category)}</span>
+                    ${opp.type ? `<div style="margin-top: 3px;"><span class="badge badge-category" style="font-size: 10px;">${this.escape(opp.type)}</span></div>` : ''}
                   </td>
                   <td>
                     <span class="badge badge-status-${statusClass}">
@@ -345,3 +352,4 @@ window.NovaOpportunitiesView = {
       .replace(/'/g, '&#39;');
   }
 };
+

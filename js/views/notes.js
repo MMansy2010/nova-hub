@@ -166,3 +166,4 @@ window.NovaNotesView = {
       .replace(/'/g, '&#39;');
   }
 };
+

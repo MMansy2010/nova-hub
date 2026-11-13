@@ -306,3 +306,4 @@ window.NovaOverviewView = {
       .replace(/'/g, '&#39;');
   }
 };
+

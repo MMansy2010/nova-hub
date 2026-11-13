@@ -136,7 +136,7 @@ window.NovaSettingsView = {
             <div>
               <div style="font-size: 13px; font-weight: 600; color: var(--text-primary);">Reset to Initial Workspace</div>
               <div style="font-size: 12px; color: var(--text-secondary); margin-top: 2px;">
-                Restores the 6 baseline opportunities (NASA Space Apps, Coding Olympiad, Technovation Challenge, SYS Volunteering, NTA, GV Hackathon).
+                Restores the 7 baseline opportunities (NASA Space Apps, Coding Olympiad, Technovation Challenge, SYS Volunteering, NTA, GV Hackathon, Junior Academy – Launchpad).
               </div>
             </div>
             <button class="btn btn-danger btn-sm" onclick="window.NovaSettingsView.confirmReset()">
@@ -212,7 +212,7 @@ window.NovaSettingsView = {
   },
 
   confirmReset() {
-    if (confirm('Are you sure you want to reset your database? All custom modifications will be replaced with the 6 baseline initial opportunities.')) {
+    if (confirm('Are you sure you want to reset your database? All custom modifications will be replaced with the 7 baseline initial opportunities.')) {
       window.storage.resetToDefaults();
       window.NovaApp.showToast('Workspace reset to baseline state.');
       this.render();

@@ -240,3 +240,4 @@ window.NovaTasksView = {
       .replace(/'/g, '&#39;');
   }
 };
+

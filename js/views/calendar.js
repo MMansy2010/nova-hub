@@ -240,3 +240,4 @@ window.NovaCalendarView = {
       .replace(/'/g, '&#39;');
   }
 };
+
