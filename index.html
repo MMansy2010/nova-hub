@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NOVA HUB — Personal Opportunities Dashboard</title>
+  <meta name="description" content="Personal mission control and productivity command center for hackathons, academic competitions, and student opportunities.">
+  <link rel="stylesheet" href="css/themes.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <!-- Mobile Sidebar Overlay Backdrop -->
+  <div class="sidebar-overlay" onclick="window.NovaApp.closeMobileSidebar()"></div>
+
+  <div id="app-root">
+    <!-- Sidebar -->
+    <aside id="sidebar">
+      <div class="sidebar-header">
+        <a href="#overview" class="brand">
+          <div class="brand-dot"></div>
+          <span class="brand-text">NOVA HUB</span>
+        </a>
+        <span class="brand-badge">PROD</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">Navigation</div>
+        
+        <a href="#overview" class="nav-item active" data-view="overview">
+          <div class="nav-item-left">
+            <span class="nav-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+            </span>
+            <span>Overview</span>
+          </div>
+          <kbd>1</kbd>
+        </a>
+
+        <a href="#opportunities" class="nav-item" data-view="opportunities">
+          <div class="nav-item-left">
+            <span class="nav-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+            </span>
+            <span>Opportunities</span>
+          </div>
+          <span id="nav-opps-badge" class="nav-badge">6</span>
+        </a>
+
+        <a href="#tasks" class="nav-item" data-view="tasks">
+          <div class="nav-item-left">
+            <span class="nav-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            </span>
+            <span>Tasks</span>
+          </div>
+          <span id="nav-tasks-badge" class="nav-badge">0</span>
+        </a>
+
+        <a href="#calendar" class="nav-item" data-view="calendar">
+          <div class="nav-item-left">
+            <span class="nav-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </span>
+            <span>Calendar</span>
+          </div>
+          <kbd>4</kbd>
+        </a>
+
+        <a href="#notes" class="nav-item" data-view="notes">
+          <div class="nav-item-left">
+            <span class="nav-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </span>
+            <span>Field Notes</span>
+          </div>
+          <kbd>5</kbd>
+        </a>
+
+        <div class="nav-section-title" style="margin-top: 12px;">System</div>
+
+        <a href="#settings" class="nav-item" data-view="settings">
+          <div class="nav-item-left">
+            <span class="nav-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            </span>
+            <span>Settings</span>
+          </div>
+          <kbd>6</kbd>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="storage-status-pill">
+          <span class="status-dot"></span>
+          <span>LocalStorage active</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Container -->
+    <main id="main-container">
+      <!-- App Header -->
+      <header id="app-header">
+        <div class="header-left">
+          <button class="menu-toggle-btn" onclick="window.NovaApp.toggleMobileSidebar()" aria-label="Toggle Navigation">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+          <div class="view-breadcrumb">
+            <span style="color: var(--text-tertiary);">Nova</span>
+            <span style="color: var(--text-tertiary); font-size: 11px;">/</span>
+            <span>Command Center</span>
+          </div>
+          <div class="current-date-badge">
+            <span id="header-date-text">Loading date...</span>
+          </div>
+        </div>
+
+        <div class="header-center">
+          <div class="search-bar-wrapper">
+            <svg class="search-icon-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input
+              type="text"
+              class="search-input-header"
+              placeholder="Search opportunities, tasks, or notes..."
+              onclick="window.NovaApp.openCommandPalette()"
+              onfocus="window.NovaApp.openCommandPalette()"
+              readonly
+            />
+            <div class="search-shortcut-hint">
+              <kbd>⌘K</kbd>
+            </div>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <button class="btn btn-secondary btn-sm" onclick="window.NovaApp.openNewOpportunityModal()" title="Add New Opportunity (N)">
+            <span>+</span> Opportunity
+          </button>
+          
+          <button class="btn btn-ghost btn-icon" onclick="window.NovaApp.toggleTheme()" title="Toggle Theme (Dark/Light)">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+
+          <a href="#settings" class="btn btn-ghost btn-icon" title="Settings">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          </a>
+        </div>
+      </header>
+
+      <!-- Views Container -->
+      <section id="view-content">
+        <div id="view-overview" class="view-pane active"></div>
+        <div id="view-opportunities" class="view-pane"></div>
+        <div id="view-tasks" class="view-pane"></div>
+        <div id="view-calendar" class="view-pane"></div>
+        <div id="view-notes" class="view-pane"></div>
+        <div id="view-settings" class="view-pane"></div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Modal: Opportunity (Create / Edit) -->
+  <div id="modal-opportunity" class="modal-backdrop">
+    <div class="modal-window">
+      <div class="modal-header">
+        <div class="modal-title" id="modal-opportunity-title">Opportunity Details</div>
+        <button class="btn btn-ghost btn-sm" onclick="window.NovaApp.closeModal('modal-opportunity')">✕</button>
+      </div>
+      <form onsubmit="window.NovaApp.saveOpportunityForm(event)">
+        <div class="modal-body">
+          <input type="hidden" id="opp-form-id" />
+          
+          <div class="form-group">
+            <label class="form-label" for="opp-form-name">Opportunity Name *</label>
+            <input type="text" id="opp-form-name" class="form-input" required placeholder="e.g. NASA Space Apps Challenge" />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="opp-form-category">Category</label>
+              <input type="text" id="opp-form-category" class="form-input" list="category-suggestions" placeholder="Hackathon, Competition, etc." />
+              <datalist id="category-suggestions">
+                <option value="Hackathon">
+                <option value="Competition / Computer Science">
+                <option value="Technology Competition">
+                <option value="Volunteering">
+                <option value="Program / Application">
+                <option value="Research & Science">
+                <option value="Fellowship">
+              </datalist>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="opp-form-status">Current Status</label>
+              <select id="opp-form-status" class="form-select">
+                <option value="Not Started">Not Started</option>
+                <option value="Applied">Applied</option>
+                <option value="Pending">Pending</option>
+                <option value="Pending Approval">Pending Approval</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Preparation">Preparation</option>
+                <option value="Completed">Completed</option>
+                <option value="Rejected">Rejected</option>
+                <option value="On Hold">On Hold</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="opp-form-priority">Priority Level</label>
+              <select id="opp-form-priority" class="form-select">
+                <option value="Critical">Critical</option>
+                <option value="High" selected>High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="opp-form-deadline">Deadline / Event Date</label>
+              <input type="date" id="opp-form-deadline" class="form-input" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="opp-form-website">Website / Portal URL</label>
+              <input type="url" id="opp-form-website" class="form-input" placeholder="https://..." />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="opp-form-project">Project / Team Name</label>
+              <input type="text" id="opp-form-project" class="form-input" placeholder="e.g. FoodLoop" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="opp-form-notes">Personal Notes & Context</label>
+            <textarea id="opp-form-notes" class="form-textarea" placeholder="Teammates, submission requirements, ideas, or approval details..."></textarea>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-sm" onclick="window.NovaApp.closeModal('modal-opportunity')">Cancel</button>
+          <button type="submit" class="btn btn-primary btn-sm">Save Opportunity</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Task (Create / Edit) -->
+  <div id="modal-task" class="modal-backdrop">
+    <div class="modal-window">
+      <div class="modal-header">
+        <div class="modal-title" id="modal-task-title">Task Details</div>
+        <button class="btn btn-ghost btn-sm" onclick="window.NovaApp.closeModal('modal-task')">✕</button>
+      </div>
+      <form onsubmit="window.NovaApp.saveTaskForm(event)">
+        <div class="modal-body">
+          <input type="hidden" id="task-form-id" />
+
+          <div class="form-group">
+            <label class="form-label" for="task-form-title">Task Title *</label>
+            <input type="text" id="task-form-title" class="form-input" required placeholder="e.g. Submit pitch deck PDF" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="task-form-description">Description</label>
+            <input type="text" id="task-form-description" class="form-input" placeholder="Details or checklist notes..." />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="task-form-opportunity">Related Opportunity</label>
+            <select id="task-form-opportunity" class="form-select"></select>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="task-form-duedate">Due Date</label>
+              <input type="date" id="task-form-duedate" class="form-input" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="task-form-priority">Priority</label>
+              <select id="task-form-priority" class="form-select">
+                <option value="Critical">Critical</option>
+                <option value="High">High</option>
+                <option value="Medium" selected>Medium</option>
+                <option value="Low">Low</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 8px; margin-top: 4px;">
+            <input type="checkbox" id="task-form-completed" class="custom-checkbox" />
+            <label for="task-form-completed" style="font-size: 13px; cursor: pointer; user-select: none;">Mark this task as completed</label>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-sm" onclick="window.NovaApp.closeModal('modal-task')">Cancel</button>
+          <button type="submit" class="btn btn-primary btn-sm">Save Task</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal: Opportunity Detail Drawer / Inspect -->
+  <div id="modal-inspect-opportunity" class="modal-backdrop">
+    <div class="modal-window" style="max-width: 660px;">
+      <div class="modal-header">
+        <div class="modal-title">Opportunity Inspector</div>
+        <button class="btn btn-ghost btn-sm" onclick="window.NovaApp.closeModal('modal-inspect-opportunity')">✕</button>
+      </div>
+      <div class="modal-body" id="inspect-modal-body">
+        <!-- Rendered dynamically -->
+      </div>
+      <div class="modal-footer" id="inspect-modal-footer">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Command Palette (Ctrl+K / ⌘K) -->
+  <div id="command-palette" class="command-palette-backdrop" onclick="if(event.target === this) window.NovaApp.closeCommandPalette()">
+    <div class="command-palette-box">
+      <div class="command-palette-input-wrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--text-tertiary);"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input
+          type="text"
+          id="command-palette-input"
+          class="command-palette-input"
+          placeholder="Type a command or search opportunities..."
+          oninput="window.NovaApp.filterCommandPalette(this.value)"
+        />
+        <kbd>ESC</kbd>
+      </div>
+      <div id="command-palette-results" class="command-palette-results">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notifications Container -->
+  <div id="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="js/storage.js"></script>
+  <script src="js/views/overview.js"></script>
+  <script src="js/views/opportunities.js"></script>
+  <script src="js/views/tasks.js"></script>
+  <script src="js/views/calendar.js"></script>
+  <script src="js/views/notes.js"></script>
+  <script src="js/views/settings.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

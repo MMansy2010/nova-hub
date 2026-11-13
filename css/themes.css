@@ -1,0 +1,122 @@
+/* NOVA HUB — Theme Variables */
+
+:root, [data-theme="dark"] {
+  --bg-app: #0c0d11;
+  --bg-sidebar: #101217;
+  --bg-surface: #14171e;
+  --bg-surface-elevated: #1a1e27;
+  --bg-surface-hover: #1f232e;
+  --bg-surface-active: #252a37;
+  --bg-input: #12141a;
+  
+  --border-subtle: #212530;
+  --border-medium: #2a303f;
+  --border-strong: #3b4356;
+  --border-accent: rgba(57, 229, 140, 0.35);
+
+  --text-primary: #f0f2f6;
+  --text-secondary: #9aa1b1;
+  --text-tertiary: #60687a;
+  --text-inverse: #0c0d11;
+
+  /* Accent: Electric Lime / Emerald - restrained, sophisticated */
+  --accent: #39e58c;
+  --accent-hover: #48f39b;
+  --accent-dim: rgba(57, 229, 140, 0.12);
+  --accent-border: rgba(57, 229, 140, 0.25);
+  --accent-text: #39e58c;
+
+  /* Semantic status colors */
+  --status-in-progress: #38bdf8;
+  --status-in-progress-bg: rgba(56, 189, 248, 0.12);
+  --status-prep: #a78bfa;
+  --status-prep-bg: rgba(167, 139, 250, 0.12);
+  --status-pending: #fbbf24;
+  --status-pending-bg: rgba(251, 191, 36, 0.12);
+  --status-completed: #34d399;
+  --status-completed-bg: rgba(52, 211, 153, 0.12);
+  --status-rejected: #f87171;
+  --status-rejected-bg: rgba(248, 113, 113, 0.12);
+  --status-hold: #94a3b8;
+  --status-hold-bg: rgba(148, 163, 184, 0.12);
+
+  /* Priorities */
+  --priority-critical: #f43f5e;
+  --priority-critical-bg: rgba(244, 63, 94, 0.12);
+  --priority-high: #f97316;
+  --priority-high-bg: rgba(249, 115, 22, 0.12);
+  --priority-medium: #38bdf8;
+  --priority-medium-bg: rgba(56, 189, 248, 0.12);
+  --priority-low: #94a3b8;
+  --priority-low-bg: rgba(148, 163, 184, 0.12);
+
+  /* Overdue and alert */
+  --alert-danger: #ef4444;
+  --alert-danger-bg: rgba(239, 68, 68, 0.12);
+  --alert-warning: #f59e0b;
+  --alert-warning-bg: rgba(245, 158, 11, 0.12);
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.6);
+  --shadow-modal: 0 20px 48px -8px rgba(0, 0, 0, 0.75), 0 0 0 1px var(--border-medium);
+}
+
+[data-theme="light"] {
+  --bg-app: #f7f8fa;
+  --bg-sidebar: #eff1f5;
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #ffffff;
+  --bg-surface-hover: #f3f5f8;
+  --bg-surface-active: #e8ebf0;
+  --bg-input: #ffffff;
+
+  --border-subtle: #e2e5eb;
+  --border-medium: #cbd1dc;
+  --border-strong: #9ca6b8;
+  --border-accent: rgba(16, 185, 129, 0.45);
+
+  --text-primary: #12151b;
+  --text-secondary: #505869;
+  --text-tertiary: #848e9f;
+  --text-inverse: #ffffff;
+
+  --accent: #10b981;
+  --accent-hover: #059669;
+  --accent-dim: rgba(16, 185, 129, 0.1);
+  --accent-border: rgba(16, 185, 129, 0.3);
+  --accent-text: #059669;
+
+  --status-in-progress: #0284c7;
+  --status-in-progress-bg: #e0f2fe;
+  --status-prep: #7c3aed;
+  --status-prep-bg: #f3e8ff;
+  --status-pending: #d97706;
+  --status-pending-bg: #fef3c7;
+  --status-completed: #059669;
+  --status-completed-bg: #d1fae5;
+  --status-rejected: #dc2626;
+  --status-rejected-bg: #fee2e2;
+  --status-hold: #64748b;
+  --status-hold-bg: #f1f5f9;
+
+  --priority-critical: #e11d48;
+  --priority-critical-bg: #ffe4e6;
+  --priority-high: #ea580c;
+  --priority-high-bg: #ffedd5;
+  --priority-medium: #0284c7;
+  --priority-medium-bg: #e0f2fe;
+  --priority-low: #64748b;
+  --priority-low-bg: #f1f5f9;
+
+  --alert-danger: #dc2626;
+  --alert-danger-bg: #fee2e2;
+  --alert-warning: #d97706;
+  --alert-warning-bg: #fef3c7;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.12);
+  --shadow-modal: 0 20px 48px -8px rgba(0, 0, 0, 0.2), 0 0 0 1px var(--border-medium);
+}
