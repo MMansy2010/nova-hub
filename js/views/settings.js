@@ -136,7 +136,7 @@ window.NovaSettingsView = {
             <div>
               <div style="font-size: 13px; font-weight: 600; color: var(--text-primary);">Reset to Initial Workspace</div>
               <div style="font-size: 12px; color: var(--text-secondary); margin-top: 2px;">
-                Restores the 6 baseline opportunities (NASA Space Apps, Coding Olympiad, Technovation Girls, SYS Volunteering, NTA, GV Hackathon).
+                Restores the 6 baseline opportunities (NASA Space Apps, Coding Olympiad, Technovation Challenge, SYS Volunteering, NTA, GV Hackathon).
               </div>
             </div>
             <button class="btn btn-danger btn-sm" onclick="window.NovaSettingsView.confirmReset()">

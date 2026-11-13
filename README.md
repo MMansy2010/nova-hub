@@ -78,7 +78,7 @@ NOVA HUB comes out of the box with the 6 baseline student opportunities:
    - *Category*: Competition / Computer Science
    - *Website*: [https://my.codingolympiad.org/stadia/6ac0d24d80ff02ec30fb6d96/my-exams](https://my.codingolympiad.org/stadia/6ac0d24d80ff02ec30fb6d96/my-exams)
    - *Status*: Preparation | *Priority*: High
-3. **Technovation Girls**
+3. **Technovation Challenge**
    - *Category*: Technology Competition
    - *Project*: FoodLoop
    - *Website*: [https://my.technovation.org/submission/start](https://my.technovation.org/submission/start)

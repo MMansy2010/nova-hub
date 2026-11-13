@@ -38,7 +38,7 @@ const INITIAL_DATA = {
     },
     {
       id: 'opp-technovation-girls',
-      name: 'Technovation Girls',
+      name: 'Technovation Challenge',
       category: 'Technology Competition',
       status: 'In Progress',
       priority: 'High',
@@ -111,6 +111,17 @@ class NovaStorage {
         console.warn('[NovaStorage] Corrupted data structure detected. Restoring baseline data safely.');
         this.saveToStorage(INITIAL_DATA);
         return JSON.parse(JSON.stringify(INITIAL_DATA));
+      }
+      // Automatic migration: update Technovation Girls to Technovation Challenge if present
+      let modified = false;
+      parsed.opportunities.forEach(o => {
+        if (o.name === 'Technovation Girls') {
+          o.name = 'Technovation Challenge';
+          modified = true;
+        }
+      });
+      if (modified) {
+        this.saveToStorage(parsed);
       }
       return parsed;
     } catch (err) {
